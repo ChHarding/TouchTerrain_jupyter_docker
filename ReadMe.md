@@ -16,7 +16,9 @@ This docker container has all the components installed needed to run TouchTerrai
 ```console
 docker pull chharding/touchterrain_jupyter
 ```
-- To create a container from the image type:
+this will pull the already build image from dockerhub.
+
+- To create a container running on your PC from this image, type:
 
 ```console
 docker run -it -v C:\Users\chris\TouchTerrain:/TouchTerrain -p 8888:8888 chharding/touchterrain_jupyter
@@ -63,7 +65,9 @@ docker run -it -v C:\Users\chris\TouchTerrain:/TouchTerrain -p 8888:8888 chhardi
 
 
 ## How to build the image
-- inside the project root folder, type:
+- if you want to pull the image from dockerhub and run is as a container on your PC, ignore this!
+- This only applies if you want to build an image yourself.
+- Inside the project root folder, type:
 
 ```console
 docker build -t chharding/touchterrain_jupyter:latest  .
