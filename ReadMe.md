@@ -28,7 +28,7 @@ docker run -it -v C:\Users\chris\TouchTerrain:/TouchTerrain -p 8888:8888 chhardi
 - `chharding/touchterrain_jupyter` is the image you downloaded (pulled) earlier
 
 
-- you will now be "inside" the container, i.e. what you type is actually run inside a virtual Linux box. You will see that your prompt has changed to root. To exit the contained, type `exit`
+- you will now be "inside" the container, i.e. what you type is actually run inside a virtual Linux box. You will see that your prompt has changed to root. To exit the container and jump back to your native OS, type `exit`
 - Any files/folders the Linux box has in /TouchTerrain will now be "mirrored" to C:\Users\chris\TouchTerrain, which enables you to access any STLs you create from within Windows or copy geotiffs from Windows to Linux.
 
 - before you can run jupyter and load your notebook, you have to install the touchterrain module. Run the `install_touchterrain.sh` shell script in `/TouchTerrain/standalone` (note the leading `./` !)
