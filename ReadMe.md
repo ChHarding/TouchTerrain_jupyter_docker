@@ -5,7 +5,7 @@ This docker container has all the components installed needed to run TouchTerrai
 ## Instructions
 
 ### Installing Docker
-- Download and install [Docker for Windows](https://www.docker.com/docker-windows) (Windows 10 Pro and up), ([Windows Home](https://docs.docker.com/docker-for-windows/install-windows-home/), [Docker for Mac](https://www.docker.com/docker-mac), or Docker for [Ubuntu](https://www.docker.com/docker-ubuntu) or [Debian](https://www.docker.com/docker-debian).
+- Download and install [Docker for Windows](https://www.docker.com/docker-windows) (Windows 10 Pro and up,[Windows Home](https://docs.docker.com/docker-for-windows/install-windows-home/)), [Docker for Mac](https://www.docker.com/docker-mac), or Docker for [Ubuntu](https://www.docker.com/docker-ubuntu) or [Debian](https://www.docker.com/docker-debian).
 - Once docker is started, it will run in the background but also give you a GUI (Docker Desktop) in which you can configure some settings, such the the RAM of the container (3 GB is fine). However, most of the interaction will be done in the commandline (power shell in Win10)
 
 ### Running the container
