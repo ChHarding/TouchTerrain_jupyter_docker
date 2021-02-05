@@ -57,10 +57,10 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /TouchTerrain
 
 # Make scripts ecexutable
-#COPY install_touchterrain.sh /usr/local/bin/
+COPY install_touchterrain.sh /TouchTerrain
 RUN chmod +x install_touchterrain.sh
-#COPY update_touchterrain.sh /usr/local/bin/
+COPY update_touchterrain.sh /TouchTerrain
 RUN chmod +x update_touchterrain.sh
-#COPY run_touchterrain.sh /usr/local/bin/
+COPY run_touchterrain.sh /TouchTerrain
 RUN chmod +x run_touchterrain.sh
 
