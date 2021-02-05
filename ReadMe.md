@@ -54,9 +54,17 @@ docker run -it -v C:\Users\chris\TouchTerrain:/TouchTerrain -p 8888:8888 chhardi
 - Copy/paste that URL into your browser. If needed, use the token (the stuff after token=) to log in.
 - Note: you might want to make a copy of TouchTerrain_standalone_jupyter_notebook.ipynb and work on the copy instead.
 
-
 - Click on the notebook (.ipynb file) to run it. 
 - Read the instructions (ignore anything with install as you have everything already installed)
 - You MUST run `ee.Autheticate()` at least once to access online DEM data or the interactive in-cell map `geemap`. You will need a Google account but once you've create the keyfile, you can comment `ee.Autheticate()` out again.
 
 - You can use `geemap` to digitize your printarea and  `k3d` to preview your STL, no need to install them via pip
+
+
+
+## How to build the image
+- inside the project root folder, type:
+
+```console
+docker build -t chharding/touchterrain_jupyter:latest  .
+```
