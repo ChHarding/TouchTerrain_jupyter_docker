@@ -20,6 +20,4 @@ echo "I am going to try to build and install touchterrain."
 cd /TouchTerrain/standalone
 pip install .
 
-echo "touchterrain installed"
-
-echo "starting notebook TouchTerrain.ipynb in /TouchTerrain/standalone"
+echo "touchterrain installed, you can now run jupyter via the run_touchterrain.sh script."
