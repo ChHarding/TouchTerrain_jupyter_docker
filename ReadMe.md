@@ -9,10 +9,10 @@ This docker container has all the components installed needed to run TouchTerrai
 - Once docker is started, it will run in the background but also give you a GUI (Docker Desktop) in which you can configure some settings, such the the RAM of the container (3 GB is fine). However, most of the interaction will be done in the commandline (power shell in Win10)
 
 ### Running the container
-- Create a new directory/folder that will contain all files related to touchterrain, such as the github repo clone or your STL or geotiff files. For example: `C:\Users\chris\TouchTerrain` or `/Users/chris/TouchTerrain`
+- Create a new directory/folder that will contain any data you want to transfer in and out of the container once it's running, such as STL files you've created or geotiff files you want to use with TouchTerrain. Example: `C:\Users\chris\TTdata` or `/Users/chris/TTdata`
 
 #### Download the image and run the container
-- To get the image, go into a terminal (MacOS or Linux) or Powershell window (Windows) while docker is running and type:
+- To get the image, go into a terminal on your "outside" OS (termain for MacOS, Powershell for Windows), while the docker app is running and type:
 ```console
 docker pull chharding/touchterrain_jupyter
 ```
@@ -21,18 +21,17 @@ this will pull the already built image from dockerhub.
 - To create a container running on your PC from this image, type:
 
 ```console
-docker run -it -v C:\Users\chris\TouchTerrain:/TouchTerrain -p 8888:8888 chharding/touchterrain_jupyter
+docker run -it -v C:\Users\chris\TTdata:/TouchTerrain/TTdata -p 8888:8888 chharding/touchterrain_jupyter
 ```
 
-- `-it` means interactive
-- `-v`  links the files in the docker container with files in your host operating system.
+- `-it` means interactive, meaning your outside OS terminal will
+- `-v`  left of colon is your data folder as see by your outside OS. right of the colon is how you will access it from inside the container.
 - `-p 8888:8888` sets the port through with your local browser will communicate with jupyter running in the container
 - `chharding/touchterrain_jupyter` is the image you downloaded (pulled) earlier
 
 
 - you will now be "inside" the container, i.e. what you type is actually run inside a virtual Linux box. You will see that your prompt has changed to root. To exit the container and jump back to your native OS, type `exit`
-- Any files/folders the Linux box has in /TouchTerrain will now be "mirrored" to C:\Users\chris\TouchTerrain, which enables you to access any STLs you create from within Windows or copy geotiffs from Windows to Linux.
-
+- Any files/folders the Linux box has in /TouchTerrain/TTdata will now be "mirrored" to C:\Users\chris\TTdata, which enables you to copy files between the container and your outside OS.
 - before you can run jupyter and load your notebook, you have to install the touchterrain module. Run the `install_touchterrain.sh` shell script in `/TouchTerrain/standalone` (note the leading `./` !)
 
 
@@ -65,10 +64,13 @@ docker run -it -v C:\Users\chris\TouchTerrain:/TouchTerrain -p 8888:8888 chhardi
 
 
 ## How to build the image
-- if you want to pull the image from dockerhub and run is as a container on your PC, ignore this!
-- This only applies if you want to build an image yourself.
+- If you just want to pull the image from dockerhub and run is as a container on your PC, ignore this!
+- This only applies if you want to build an image yourself, possible with a modified DOckerfile. Here I'm tagging the image so it belongs to my dockerhub id (chharding), but you will either need to have you own dockerhub id or omit `-t chharding/touchterrain_jupyter:latest` to build a local image.
+
 - Inside the project root folder, type:
 
 ```console
 docker build -t chharding/touchterrain_jupyter:latest  .
 ```
+
+#### Thanks to Simaon Marius Mudd (https://github.com/simon-m-mudd) for helping me build the docker image based on some of his examples!
