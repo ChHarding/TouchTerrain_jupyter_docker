@@ -3,7 +3,7 @@
 # Based on docker files by Simon Mudd (simon.m.mudd@ed.ac.uk)
 # Pull base image. We start from the miniconda image
 FROM conda/miniconda3
-LABEL maintainer="charding@iastate.edu)"
+LABEL maintainer="charding@iastate.edu"
 
 # Need this to shortcut the stupid tzdata noninteractive thing
 ARG DEBIAN_FRONTEND=noninteractive
