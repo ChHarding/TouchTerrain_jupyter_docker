@@ -23,12 +23,13 @@ this will pull the already built image from dockerhub.
 - To create a container running on your PC from this image, type:
 
 ```console
-docker run -it -v C:\Users\chris\TTdata:/TouchTerrain/TTdata -p 8888:8888 chharding/touchterrain_jupyter
+docker run -it -v C:\Users\chris\TTdata:/TouchTerrain/TTdata -p 8888:8888 --name touchterain_container chharding/touchterrain_jupyter
 ```
 
-- `-it` means interactive, meaning your outside OS terminal will
+- `-it` means interactive, meaning your outside OS terminal will turn into a within-container (Linux) terminal
 - `-v`  left of colon is your data folder as see by your outside OS. right of the colon is how you will access it from inside the container.
 - `-p 8888:8888` sets the port through with your local browser will communicate with jupyter running in the container
+- `--name touchterain_container` sets the name of the container
 - `chharding/touchterrain_jupyter` is the image you downloaded (pulled) earlier
 
 
