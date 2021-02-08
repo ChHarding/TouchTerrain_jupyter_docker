@@ -14,7 +14,7 @@ This docker container has all the components installed needed to run TouchTerrai
 - Create a new directory/folder that will contain any data you want to transfer in and out of the container once it's running, such as STL files you've created or geotiff files you want to use with TouchTerrain. Example: `C:\Users\chris\TTdata` or `/Users/chris/TTdata`
 
 #### Download the image and run the container
-- To get the image, go into a terminal on your "outside" OS (termain for MacOS, Powershell for Windows), while the docker app is running and type:
+- To get the image, go into a terminal on your "outside" OS (Terminal.app for MacOS, Powershell for Windows), while the docker app is running and type:
 ```console
 docker pull chharding/touchterrain_jupyter
 ```
