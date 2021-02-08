@@ -16,7 +16,7 @@ This docker container has all the components installed needed to run TouchTerrai
 ```console
 docker pull chharding/touchterrain_jupyter
 ```
-this will pull the already build image from dockerhub.
+this will pull the already built image from dockerhub.
 
 - To create a container running on your PC from this image, type:
 
