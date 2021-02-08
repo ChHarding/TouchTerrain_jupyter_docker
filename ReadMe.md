@@ -9,6 +9,8 @@ This docker container has all the components installed needed to run TouchTerrai
 - Once docker is started, it will run in the background but also give you a GUI (Docker Desktop) in which you can configure some settings, such the the RAM of the container (3 GB is fine). However, most of the interaction will be done in the commandline (power shell in Win10)
 
 ### Running the container
+
+#### Creating a data folder
 - Create a new directory/folder that will contain any data you want to transfer in and out of the container once it's running, such as STL files you've created or geotiff files you want to use with TouchTerrain. Example: `C:\Users\chris\TTdata` or `/Users/chris/TTdata`
 
 #### Download the image and run the container
@@ -73,4 +75,4 @@ docker run -it -v C:\Users\chris\TTdata:/TouchTerrain/TTdata -p 8888:8888 chhard
 docker build -t chharding/touchterrain_jupyter:latest  .
 ```
 
-#### Thanks to Simaon Marius Mudd (https://github.com/simon-m-mudd) for helping me build the docker image based on some of his examples!
+##### Thanks to Simaon Marius Mudd (https://github.com/simon-m-mudd) for helping me build the docker image based on some of his examples!
