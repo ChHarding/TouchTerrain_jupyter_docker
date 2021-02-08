@@ -76,4 +76,4 @@ docker run -it -v C:\Users\chris\TTdata:/TouchTerrain/TTdata -p 8888:8888 --name
 docker build -t chharding/touchterrain_jupyter:latest  .
 ```
 
-##### Thanks to Simaon Marius Mudd (https://github.com/simon-m-mudd) for helping me build the docker image based on some of his examples!
+##### Thanks to Simon Marius Mudd (https://github.com/simon-m-mudd) for helping me build the docker image based on some of his examples!
