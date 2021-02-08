@@ -10,8 +10,7 @@ This docker container has all the components installed needed to run [TouchTerra
 
 ### Running the container
 
-#### Creating a data folder
-- Create a new directory/folder that will contain any data you want to transfer in and out of the container once it's running, such as STL files you've created or geotiff files you want to use with TouchTerrain. Example: `C:\Users\chris\TTdata` or `/Users/chris/TTdata`
+(Note: I'm not using a data folder mounted as a volume on the container here b/c I find it easier to use jupyter's upload/download to transfer data to ad fro the container.)
 
 #### Download the image and run the container
 - To get the image, go into a terminal on your "outside" OS (Terminal.app for MacOS, Powershell for Windows), while the docker app is running and type:
@@ -23,27 +22,26 @@ this will pull the already built image from dockerhub.
 - To create a container running on your PC from this image, type:
 
 ```console
-docker run -it -v C:\Users\chris\TTdata:/TouchTerrain/TTdata -p 8888:8888 --name touchterain_container chharding/touchterrain_jupyter
+docker run -it -p 8888:8888 --name touchterain_container chharding/touchterrain_jupyter
 ```
 
 - `-it` means interactive, meaning your outside OS terminal will turn into a within-container (Linux) terminal
-- `-v`  left of colon is your data folder as see by your outside OS. right of the colon is how you will access it from inside the container.
 - `-p 8888:8888` sets the port through with your local browser will communicate with jupyter running in the container
-- `--name touchterain_container` sets the name of the container
+- `--name touchterain_container` sets the name of the container, otherwise its random.
 - `chharding/touchterrain_jupyter` is the image you downloaded (pulled) earlier
 
 
-- you will now be "inside" the container, i.e. what you type is actually run inside a virtual Linux box. You will see that your prompt has changed to root. To exit the container and jump back to your native OS, type `exit`
-- Any files/folders the Linux box has in /TouchTerrain/TTdata will now be "mirrored" to C:\Users\chris\TTdata, which enables you to copy files between the container and your outside OS.
-- before you can run jupyter and load your notebook, you have to install the touchterrain module. Run the `install_touchterrain.sh` shell script in `/TouchTerrain/standalone` (note the leading `./` !)
+- you will now be "inside" the container, i.e. what you type is actually run inside a virtual Linux box. You will see that your prompt has changed to root. To exit the container, type `exit` or kill the terminal window. 
+
+- before you can run jupyter and load your notebook, you have to install the touchterrain module. Run the `install_touchterrain.sh` shell script sitting in `/TouchTerrain`: (note the leading `./`. Hit tab after typing in ./in to get a text completion)
 
 
 ```console
 ./install_touchterrain.sh
 ```
 
-- This will clone the module from github and put it into `/TouchTerrain/standalone`. standalone contains the notebook you will later run. STLs created via the notebook will also be in a subfolder in standalone.  
-- After the install script has created and filled the standalone folder, you cannot simple run the it again. 
+- This will clone the module from github and put it into `/TouchTerrain/standalone`. The standalone folder contains the notebook you will later run. STLs created via the notebook will also be in a subfolder in standalone, use jupyter's download functionality to copy them from the container to your OS.
+- After the install script has created and filled the standalone folder, you cannot simple run it again.
 - Instead, if you want to update touchterrain (b/c of some new development you want to use), you need to run `./update_touchterrain.sh` instead. 
 - Update will copy newer files from github into the standalone folder, including the default notebook called `TouchTerrain_standalone_jupyter_notebook.ipynb`! If you do not want to loose any work you have done with it,  be sure to rename it prior to the update!
 
@@ -64,7 +62,10 @@ docker run -it -v C:\Users\chris\TTdata:/TouchTerrain/TTdata -p 8888:8888 --name
 
 - You can use `geemap` to digitize your printarea and  `k3d` to preview your STL, no need to install them via pip
 
-
+#### Workflow tips
+- Once you've created a terrain model, it will be inside the tmp folder, either as a zip or a folder. To copy the zip or folder to somewhere outside the contained, look at the "file manager" (tree) that comes up intially when the jupyter server is started. Navigate to the tmp folder and select the zip or folder (checkboxes on the left). Several buttons will show up at the top, click Download to transport the files you want from the container to your "ouyside" OS for printing, etc. 
+- If you want to copy a geotiff into the container to make a 3D terrain model from it, navigate to the folder the notebook (.ipynb) file is in and click on upload (upper right). Configure the `"importedDEM"` setting to point to this file. Same for using a bottom relief image.
+- Note that any files you've created or changed inside the running container will still reside in the image after you've exited the contained. However, if you want to go back and continue your work, you cannot use again use the docker run command from above. Instead, go to the Docker Desktop app and find the touchterrain_container under containers. To the right, find and click the CLI button to open a new container terminal. If CLI is greyed out, hit START first.
 
 ## How to build the image
 - If you just want to pull the image from dockerhub and run is as a container on your PC, ignore this!
