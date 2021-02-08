@@ -33,7 +33,7 @@ docker run -it -p 8888:8888 --name touchterain_container chharding/touchterrain_
 
 - you will now be "inside" the container, i.e. what you type is actually run inside a virtual Linux box. You will see that your prompt has changed to root. To exit the container, type `exit` or kill the terminal window. 
 
-- before you can run jupyter and load your notebook, you have to install the touchterrain module. Run the `install_touchterrain.sh` shell script sitting in `/TouchTerrain`: (note the leading `./`. Hit tab after typing in ./in to get a text completion)
+- before you can run jupyter and load your notebook, you have to install the touchterrain module. Run the `install_touchterrain.sh` shell script sitting in `/TouchTerrain`: (note the leading `./`. Hit tab after typing in `./in` to get a text completion to `./install_touchterrain.sh`)
 
 
 ```console
