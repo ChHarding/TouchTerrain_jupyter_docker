@@ -1,6 +1,6 @@
 # Running touchterrain inside a Docker container
 
-This docker container has all the components installed needed to run TouchTerrain in stand alone mode (i.e. NOT via the web app) inside a jupyter notebook
+This docker container has all the components installed needed to run [TouchTerrain](https://github.com/ChHarding/TouchTerrain_for_CAGEO) in stand alone mode (i.e. NOT via the web app) inside a jupyter notebook.
 
 ## Instructions
 
