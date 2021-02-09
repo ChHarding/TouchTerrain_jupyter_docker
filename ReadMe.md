@@ -10,7 +10,7 @@ This docker container has all the components installed needed to run [TouchTerra
 
 ### Running the container
 
-(Note: I'm not using a data folder mounted as a volume on the container here b/c I find it easier to use jupyter's upload/download to transfer data to ad fro the container.)
+(Note: I'm not using a data folder mounted as a volume on the container here b/c I find it easier to use jupyter's upload/download to transfer data to and fro the container.)
 
 #### Download the image and run the container
 - In Docker Desktop, delete any older container or image of touchterrain you might have.
@@ -18,7 +18,7 @@ This docker container has all the components installed needed to run [TouchTerra
 ```console
 docker pull chharding/touchterrain_jupyter
 ```
-this will pull the already built image from dockerhub. The image is about 2 Gb. (You can do this in any folder, the image will be put into a special docker folder on your system, not the current folder.)
+this will pull the already built image from dockerhub. The image is about 2 Gb to download but will require 5 Gb disk space. (You can do this in any folder, the image will be put into a special docker folder on your system, not the current folder.)
 
 - To create a container running on your PC from this image, type:
 
