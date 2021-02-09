@@ -11,10 +11,8 @@
 # notebook by renaming it to something like TouchTerrain_my_name.ipynb and running it
 # after the update
 
-echo "The TouchTerain repository already exists in standalone, updating to the latest version."
-echo "Making a copy of TouchTerrain_standalone_jupyter_notebook.ipynb to TouchTerrain_standalone_jupyter_notebook.ipynb.old"
-echo "otherwise it would be overwritten with a newer version"
-echo "If you had an older notebook called TouchTerrain_standalone_jupyter_notebook.ipynb that you worked on, it ois now called TouchTerrain_standalone_jupyter_notebook.ipynb.old"
+
+echo "TouchTerrain_standalone_jupyter_notebook.ipynb has been renamed to TouchTerrain_standalone_jupyter_notebook.ipynb.old"
 
 cp TouchTerrain_standalone_jupyter_notebook.ipynb TouchTerrain_standalone_jupyter_notebook.ipynb.old
 git --work-tree=/TouchTerrain/standalone --git-dir=/TouchTerrain/standalone/.git pull origin master
