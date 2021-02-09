@@ -13,11 +13,12 @@ This docker container has all the components installed needed to run [TouchTerra
 (Note: I'm not using a data folder mounted as a volume on the container here b/c I find it easier to use jupyter's upload/download to transfer data to ad fro the container.)
 
 #### Download the image and run the container
+- In Docker Desktop, delete any older container or image of touchterrain you might have.
 - To get the image, go into a terminal on your "outside" OS (Terminal.app for MacOS, Powershell for Windows), while the docker app is running and type:
 ```console
 docker pull chharding/touchterrain_jupyter
 ```
-this will pull the already built image from dockerhub.
+this will pull the already built image from dockerhub. The image is about 2 Gb. (You can do this in any folder, the image will be put into a special docker folder on your system, not the current folder.)
 
 - To create a container running on your PC from this image, type:
 
@@ -61,6 +62,7 @@ docker run -it -p 8888:8888 --name touchterain_container chharding/touchterrain_
 - You MUST run `ee.Autheticate()` at least once to access online DEM data or the interactive in-cell map `geemap`. You will need a Google account but once you've create the keyfile, you can comment `ee.Autheticate()` out again.
 
 - You can use `geemap` to digitize your printarea and  `k3d` to preview your STL, no need to install them via pip
+- If you want to stop the jupyter server, hit Control-c and then y. This will return you to the container terminal. Use `./run_touchterrain.sh` to start the server again.
 
 #### Workflow tips
 - Once you've created a terrain model, it will be inside the tmp folder as a zip file. To copy the zip to somewhere outside the container, look at the "file manager" (tree) that comes up intially when the jupyter server is started. Navigate to the tmp folder and select the zip file (checkboxes on the left). Several buttons will show up at the top, click Download to copy the zip file from the container to your "outside" OS for printing, etc. If you've used the 3D model previewer inside jupyter, you also have a folder from unzipping the zip file. You can remove this folder.
