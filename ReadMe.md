@@ -44,7 +44,7 @@ docker run -it -p 8888:8888 --name touchterain_container chharding/touchterrain_
 - This will clone the module from github and put it into `/TouchTerrain/standalone`. The standalone folder contains the notebook you will later run. STLs created via the notebook will also be in a subfolder in standalone, use jupyter's download functionality to copy them from the container to your OS.
 - After the install script has created and filled the standalone folder, you cannot simple run it again.
 - Instead, if you want to update touchterrain (b/c of some new development you want to use), you need to run `./update_touchterrain.sh` instead. 
-- Update will copy newer files from github into the standalone folder, including the default notebook called `TouchTerrain_standalone_jupyter_notebook.ipynb`! If you do not want to loose any work you have done with it,  be sure to rename it prior to the update!
+- Update will copy newer files from github into the standalone folder, including the default notebooks c! If you do not want to loose any work you have done with it,  be sure to rename it prior to the update!
 
 #### Using the notebook
 - To start a local jupyter server, run this shellscript (in `/TouchTerrain/standalone`)
@@ -55,7 +55,11 @@ docker run -it -p 8888:8888 --name touchterain_container chharding/touchterrain_
 
 - You will see a URL starting with 127.0.0.1, something like `http://127.0.0.1:8888/?token=ea78c44799a531743`
 - Copy/paste that URL into your browser. If needed, use the token (the stuff after token=) to log in.
-- Note: you might want to make a copy of TouchTerrain_standalone_jupyter_notebook.ipynb and work on the copy instead.
+
+- There are two notebooks:
+  - `TouchTerrain_standalone_jupyter_notebook.ipynb`: This is the standard notebook and requires jupyter and Python knowledge
+  - `TouchTerrain_jupyter_for_starters.ipynb`: __This notebook is recommended for beginners__. It is somewhat simplified and explains a lot of details that will hopefully be useful for those with little to no jupyter experience.
+- Note: Before you start you might want to make a copy of the original notebook and work on the copy instead.
 
 - Click on the notebook (.ipynb file) to run it. 
 - Read the instructions (ignore anything with install as you have everything already installed)
