@@ -1,12 +1,18 @@
 # Running touchterrain inside a Docker container
 
-This docker container has all the components installed needed to run [TouchTerrain](https://github.com/ChHarding/TouchTerrain_for_CAGEO) in stand alone mode (i.e. NOT via the web app) inside a jupyter notebook.
+- This docker container has all the components installed needed to run [TouchTerrain](https://github.com/ChHarding/TouchTerrain_for_CAGEO) in stand alone mode (i.e. NOT via the web app) inside a jupyter notebook.
+- Once the the docker container is running is can be used as a virtual Linux box 
+- Using docker ensures that all packages, including some tricky ones (looking at you GDAL!) are already installed in a modern Python system (currently 3.9).
+- This will hopefully help us to bring the standalone version (which includes may cool features the web app cannot perform) to more people, without as little complexity as possible. Although minimal, some command line (text terminal) activity is required.
+- After creating the docker container, scripts are provided to install the latest verion of TouchTerrain and to run a jupyter server in the container, that can be accessed through your standard, local browser.
+- A beginner friendly new notebook (`TouchTerrain_jupyter_for_starters.ipynb`) will hopefully make is easy for beginners to work through the workflow of creating a 3D terrain model file in standalone.
+
 
 ## Instructions
 
 ### Installing Docker
 - Download and install [Docker for Windows](https://www.docker.com/docker-windows) (Windows 10 Pro and up,[Windows Home](https://docs.docker.com/docker-for-windows/install-windows-home/)), [Docker for Mac](https://www.docker.com/docker-mac), or Docker for [Ubuntu](https://www.docker.com/docker-ubuntu) or [Debian](https://www.docker.com/docker-debian).
-- Once docker is started, it will run in the background but also give you a GUI (Docker Desktop) in which you can configure some settings, such the the RAM of the container (3 GB is fine). However, most of the interaction will be done in the commandline (power shell in Win10)
+- Once docker is started, it will run in the background and also give you a GUI (Docker Desktop) in which you can configure some settings, such the the RAM of the container (3 GB is fine). However, most of the interaction will be done in the commandline (power shell in Win10)
 
 ### Running the container
 
