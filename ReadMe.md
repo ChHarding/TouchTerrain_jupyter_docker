@@ -9,16 +9,16 @@
 ### TouchTerrain Standalone Pros & Cons
 #### Pros
 - No server limitations regarding the size of the data that can be processed (other than your system specs). It is possible 
-- Can preocess DEM data from a geotiff you provide (could be Lidar terrain!)
-- Multi-core processing for multi-tile models
+- Can process DEM data from a geotiff you provide (could be Lidar terrain!)
 - Can digitize a polygon inside an interactive map (geemap)
 - Integrates GPX line files to indicate path data on the terrain model
-- Has a in-browser 3D model previewer (k3d)
+- Has an in-browser 3D model previewer (k3d)
 - Uses the very flexible and resonably user-friendly jupyter notebook system to access the underlying Python code
 
 #### Cons
 - Some initial time investment required to set up docker
-- Needs a somewhat beefy PC (8 Gb Ram minimum)
+- Needs a somewhat beefy PC (8 Gb Ram minimum, 16 Gb recommended)
+- Image is rather large: 2 Gb to download, extracts to 5Gb
 
 
 
