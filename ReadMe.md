@@ -1,16 +1,36 @@
-# Running touchterrain inside a Docker container
+# Running TouchTerrain Standalone inside a Docker container
+- This docker container has all the components installed needed to run [TouchTerrain](https://github.com/ChHarding/TouchTerrain_for_CAGEO) in stand alone mode (i.e. NOT via the web app) inside a jupyter notebook. Using standalone has many advantage compared to the web app.
+- Once the the docker container is running, is can be used as a virtual Linux box. 
+- Using docker ensures that all packages, including some tricky ones (looking at you GDAL!) are already installed in a modern Python system (currently 3.9).
+- This will hopefully help us to bring the standalone version to more people, without as little complexity as possible. Although minimal, some command line (text terminal) activity is required.
+- After creating the docker container, scripts are provided to install the latest verion of TouchTerrain and to run a jupyter server inside the container. Theserver that can be accessed through your standard, local browser and you can download and upload files through jupyter.
+- A new notebook (`TouchTerrain_jupyter_for_starters.ipynb`) will hopefully make is easy for beginners to work through the workflow of creating a 3D terrain model file in standalone.
 
-This docker container has all the components installed needed to run [TouchTerrain](https://github.com/ChHarding/TouchTerrain_for_CAGEO) in stand alone mode (i.e. NOT via the web app) inside a jupyter notebook.
+### TouchTerrain Standalone Pros & Cons
+#### Pros
+- No server limitations regarding the size of the data that can be processed (other than your system specs). It is possible 
+- Can process DEM data from a geotiff you provide (could be Lidar terrain!)
+- Can digitize a polygon inside an interactive map (geemap)
+- Integrates GPX line files to indicate path data on the terrain model
+- Has an in-browser 3D model previewer (k3d)
+- Uses the very flexible and resonably user-friendly jupyter notebook system to access the underlying Python code
+
+#### Cons
+- Some initial time investment required to set up docker
+- Needs a somewhat beefy PC (8 Gb Ram minimum, 16 Gb recommended)
+- Image is rather large: 2 Gb to download, extracts to 5Gb
+
+
 
 ## Instructions
 
 ### Installing Docker
 - Download and install [Docker for Windows](https://www.docker.com/docker-windows) (Windows 10 Pro and up,[Windows Home](https://docs.docker.com/docker-for-windows/install-windows-home/)), [Docker for Mac](https://www.docker.com/docker-mac), or Docker for [Ubuntu](https://www.docker.com/docker-ubuntu) or [Debian](https://www.docker.com/docker-debian).
-- Once docker is started, it will run in the background but also give you a GUI (Docker Desktop) in which you can configure some settings, such the the RAM of the container (3 GB is fine). However, most of the interaction will be done in the commandline (power shell in Win10)
+- Once docker is started, it will run in the background and also give you a GUI (Docker Desktop) in which you can configure some settings, such the the RAM of the container (3 GB is fine). However, most of the interaction will be done in the commandline (power shell in Win10)
 
 ### Running the container
 
-(Note: I'm not using a data folder mounted as a volume on the container here b/c I find it easier to use jupyter's upload/download to transfer data to ad fro the container.)
+(Note: I'm not using a data folder mounted as a volume on the container here b/c I find it easier to use jupyter's upload/download to transfer data to and fro the container.)
 
 #### Download the image and run the container
 - In Docker Desktop, delete any older container or image of touchterrain you might have.
@@ -18,7 +38,7 @@ This docker container has all the components installed needed to run [TouchTerra
 ```console
 docker pull chharding/touchterrain_jupyter
 ```
-this will pull the already built image from dockerhub. The image is about 2 Gb. (You can do this in any folder, the image will be put into a special docker folder on your system, not the current folder.)
+this will pull the already built image from dockerhub. The image is about 2 Gb to download but will require 5 Gb disk space. (You can do this in any folder, the image will be put into a special docker folder on your system, not the current folder.)
 
 - To create a container running on your PC from this image, type:
 
@@ -44,7 +64,7 @@ docker run -it -p 8888:8888 --name touchterain_container chharding/touchterrain_
 - This will clone the module from github and put it into `/TouchTerrain/standalone`. The standalone folder contains the notebook you will later run. STLs created via the notebook will also be in a subfolder in standalone, use jupyter's download functionality to copy them from the container to your OS.
 - After the install script has created and filled the standalone folder, you cannot simple run it again.
 - Instead, if you want to update touchterrain (b/c of some new development you want to use), you need to run `./update_touchterrain.sh` instead. 
-- Update will copy newer files from github into the standalone folder, including the default notebook called `TouchTerrain_standalone_jupyter_notebook.ipynb`! If you do not want to loose any work you have done with it,  be sure to rename it prior to the update!
+- Update will copy newer files from github into the standalone folder, including the default notebooks c! If you do not want to loose any work you have done with it,  be sure to rename it prior to the update!
 
 #### Using the notebook
 - To start a local jupyter server, run this shellscript (in `/TouchTerrain/standalone`)
@@ -55,7 +75,11 @@ docker run -it -p 8888:8888 --name touchterain_container chharding/touchterrain_
 
 - You will see a URL starting with 127.0.0.1, something like `http://127.0.0.1:8888/?token=ea78c44799a531743`
 - Copy/paste that URL into your browser. If needed, use the token (the stuff after token=) to log in.
-- Note: you might want to make a copy of TouchTerrain_standalone_jupyter_notebook.ipynb and work on the copy instead.
+
+- There are two notebooks:
+  - `TouchTerrain_standalone_jupyter_notebook.ipynb`: This is the standard notebook and requires jupyter and Python knowledge
+  - `TouchTerrain_jupyter_for_starters.ipynb`: __This notebook is recommended for beginners__. It is somewhat simplified and explains a lot of details that will hopefully be useful for those with little to no jupyter experience.
+- Note: Before you start you might want to make a copy of the original notebook and work on the copy instead.
 
 - Click on the notebook (.ipynb file) to run it. 
 - Read the instructions (ignore anything with install as you have everything already installed)
