@@ -101,6 +101,7 @@ docker run -it -p 8888:8888 --name touchterain_container chharding/touchterrain_
 
 ```console
 docker build -t chharding/touchterrain_jupyter:latest  .
+docker push chharding/touchterrain_jupyter:latest
 ```
 
 ##### Thanks to Simon Marius Mudd (https://github.com/simon-m-mudd) for helping me build the docker image based on some of his examples!
