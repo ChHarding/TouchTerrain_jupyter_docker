@@ -2,7 +2,7 @@
 
 # updates TouchTerrain from https://github.com/ChHarding/TouchTerrain_for_CAGEO
 # Author: CH
-# Date: Feb. 5, 2021
+# Date: Feb. 10, 2021
 
 # This updates the repo and rebuilds the touchterrain module. If you have worked with a notebook
 # called TouchTerrain_standalone_jupyter_notebook.ipynb, it will be overwritten by the update.
@@ -22,3 +22,4 @@ echo "building and installing updated touchterrain module"
 cd /TouchTerrain/standalone
 pip install .
 
+echo "Done! Use ./run_touchterrain.sh to start jupyter

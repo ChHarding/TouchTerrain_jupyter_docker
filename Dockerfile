@@ -42,7 +42,6 @@ RUN conda install -y numpy
 RUN conda install -y gdal	
 RUN conda install -y k3d
 
-
 # install geemap
 RUN conda install mamba -y -c conda-forge
 RUN mamba install geemap -y -c conda-forge
@@ -51,10 +50,14 @@ RUN mamba install jupyter_contrib_nbextensions -y -c conda-forge
 # Here you can put some missing packages
 RUN apt-get update && apt-get install -y \
     build-essential \
+    vim \
 && rm -rf /var/lib/apt/lists/*
 
 # Set the working directory
 WORKDIR /TouchTerrain
+
+# open port 8888
+EXPOSE 8888
 
 # Make scripts ecexutable
 COPY install_touchterrain.sh /TouchTerrain

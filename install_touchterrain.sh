@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/bin/bash 
 
 # clones TouchTerrain from https://github.com/ChHarding/TouchTerrain_for_CAGEO
 # Author: CH
-# Date: Feb. 5, 2021
+# Date: Feb. 12, 2021
 
 # clone or pull the repo, into the src folder
 # check if the files have been cloned
