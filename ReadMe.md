@@ -3,7 +3,7 @@
 - Once the the docker container is running, is can be used as a virtual Linux box. 
 - Using docker ensures that all packages, including some tricky ones (looking at you GDAL!) are already installed in a modern Python system (currently 3.9).
 - This will hopefully help us to bring the standalone version to more people, without as little complexity as possible. Although minimal, some command line (text terminal) activity is required.
-- After creating the docker container, scripts are provided to install the latest verion of TouchTerrain and to run a jupyter server inside the container. Theserver that can be accessed through your standard, local browser and you can download and upload files through jupyter.
+- After creating the docker container, scripts are provided to install the latest version of TouchTerrain and to run a jupyter server inside the container. The server that can be accessed through your standard, local browser and you can download and upload files through jupyter.
 - A new notebook (`TouchTerrain_jupyter_for_starters.ipynb`) will hopefully make is easy for beginners to work through the workflow of creating a 3D terrain model file in standalone.
 
 ### TouchTerrain Standalone Pros & Cons
@@ -89,13 +89,13 @@ docker run -it -p 8888:8888 --name touchterain_container chharding/touchterrain_
 - If you want to stop the jupyter server, hit Control-c and then y. This will return you to the container terminal. Use `./run_touchterrain.sh` to start the server again.
 
 #### Workflow tips
-- Once you've created a terrain model, it will be inside the tmp folder as a zip file. To copy the zip to somewhere outside the container, look at the "file manager" (tree) that comes up intially when the jupyter server is started. Navigate to the tmp folder and select the zip file (checkboxes on the left). Several buttons will show up at the top, click Download to copy the zip file from the container to your "outside" OS for printing, etc. If you've used the 3D model previewer inside jupyter, you also have a folder from unzipping the zip file. You can remove this folder.
+- Once you've created a terrain model, it will be inside the tmp folder as a zip file. To copy the zip to somewhere outside the container, look at the "file manager" (tree) that comes up initially when the jupyter server is started. Navigate to the tmp folder and select the zip file (checkboxes on the left). Several buttons will show up at the top, click Download to copy the zip file from the container to your "outside" OS for printing, etc. If you've used the 3D model previewer inside jupyter, you also have a folder from unzipping the zip file. You can remove this folder.
 - If you want to copy a geotiff into the container to make a 3D terrain model from it, navigate to the folder the notebook (.ipynb) file is in and click on upload (upper right). Configure the `"importedDEM"` setting to point to this file. Same for using a bottom relief image.
 - Note that any files you've created or changed inside the running container will still reside in the image after you've exited the contained. However, if you want to go back and continue your work, you cannot use again use the docker run command from above. Instead, go to the Docker Desktop app and find the touchterrain_container under containers. To the right, find and click the CLI button to open a new container terminal. If CLI is greyed out, hit START first.
 
 ## How to build the image
 - If you just want to pull the image from dockerhub and run is as a container on your PC, ignore this!
-- This only applies if you want to build an image yourself, possible with a modified DOckerfile. Here I'm tagging the image so it belongs to my dockerhub id (chharding), but you will either need to have you own dockerhub id or omit `-t chharding/touchterrain_jupyter:latest` to build a local image.
+- This only applies if you want to build an image yourself, possible with a modified Dockerfile. Here I'm tagging the image so it belongs to my dockerhub id (chharding) and pushing it to doockerhub. You will either need to have you own dockerhub id or omit `-t chharding/touchterrain_jupyter:latest` to build a local image (and not push it!)
 
 - Inside the project root folder, type:
 
