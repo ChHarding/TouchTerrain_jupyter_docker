@@ -11,12 +11,11 @@
 # notebook by renaming it to something like TouchTerrain_my_name.ipynb and running it
 # after the update
 
-
+cp /TouchTerrain/standalone/TouchTerrain_standalone_jupyter_notebook.ipynb /TouchTerrain/standaloneTouchTerrain_standalone_jupyter_notebook.ipynb.old
 echo "TouchTerrain_standalone_jupyter_notebook.ipynb has been renamed to TouchTerrain_standalone_jupyter_notebook.ipynb.old"
 
-cp TouchTerrain_standalone_jupyter_notebook.ipynb TouchTerrain_standalone_jupyter_notebook.ipynb.old
+echo "updating touchterrain module from github"
 git --work-tree=/TouchTerrain/standalone --git-dir=/TouchTerrain/standalone/.git pull origin master
-
 
 echo "building and installing updated touchterrain module"
 cd /TouchTerrain/standalone
