@@ -22,4 +22,4 @@ echo "building and installing updated touchterrain module"
 cd /TouchTerrain/standalone
 pip install .
 
-echo "Done! Use ./run_touchterrain.sh to start jupyter
+echo "Done! Use ./run_touchterrain.sh to start jupyter"
