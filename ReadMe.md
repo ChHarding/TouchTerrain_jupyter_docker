@@ -93,7 +93,7 @@ docker run -it -p 8888:8888 --name touchterain_container chharding/touchterrain_
 - Note that any files you've created or changed inside the running container will still reside in the image after you've exited the contained. However, if you want to go back and continue your work, you cannot use again use the docker run command from above. Instead, go to the Docker Desktop app and find the touchterrain_container under containers. To the right, find and click the CLI button to open a new container terminal. If CLI is greyed out, hit START first.
 
 ## How to build the image
-- If you just want to pull the image from dockerhub and run is as a container on your PC, ignore this!
+- If you just want to pull the image from dockerhub and run it as a container on your PC, ignore this!
 - This only applies if you want to build an image yourself, possible with a modified Dockerfile. Here I'm tagging the image so it belongs to my dockerhub id (chharding) and pushing it to doockerhub. You will either need to have you own dockerhub id or omit `-t chharding/touchterrain_jupyter:latest` to build a local image (and not push it!)
 
 - Inside the project root folder, type:
