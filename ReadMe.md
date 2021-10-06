@@ -66,7 +66,7 @@ docker run -it -p 8888:8888 --name touchterain_container chharding/touchterrain_
 - Update will copy newer files from github into the standalone folder, including the default notebooks c! If you do not want to loose any work you have done with it,  be sure to rename it prior to the update!
 
 #### Using the notebook
-- To start a local jupyter server, run this shellscript (in `/TouchTerrain/standalone`)
+- To start a local jupyter server, run this shellscript (in `/TouchTerrain`)
 
 ```console
 ./run_touchterrain.sh
