@@ -63,7 +63,7 @@ docker run -it -p 8888:8888 --name touchterain_container chharding/touchterrain_
 - This will clone the module from github and put it into `/TouchTerrain/standalone`. The standalone folder contains the notebook you will later run. STLs created via the notebook will also be in a subfolder in standalone, use jupyter's download functionality to copy them from the container to your OS.
 - After the install script has created and filled the standalone folder, you cannot simple run it again.
 - Instead, if you want to update touchterrain (b/c of some new development you want to use), you need to run `./update_touchterrain.sh` instead. 
-- Update will copy newer files from github into the standalone folder, including the default notebooks c! If you do not want to loose any work you have done with it,  be sure to rename it prior to the update!
+- Update will copy newer files from github into the standalone folder, including the default notebooks! If you do not want to loose any work you have done with it,  be sure to rename it prior to the update!
 
 #### Using the notebook
 - To start a local jupyter server, run this shellscript (in `/TouchTerrain`)
@@ -82,7 +82,7 @@ docker run -it -p 8888:8888 --name touchterain_container chharding/touchterrain_
 
 - Click on the notebook (.ipynb file) to run it. 
 - Read the instructions (ignore anything with install as you have everything already installed)
-- You MUST run `ee.Autheticate()` at least once to access online DEM data or the interactive in-cell map `geemap`. You will need a Google account but once you've create the keyfile, you can comment `ee.Autheticate()` out again.
+- You MUST run `ee.Authenticate()` at least once to access online DEM data or the interactive in-cell map `geemap`. You will need a Google account but once you've create the keyfile, you can comment `ee.Autheticate()` out again.
 
 - You can use `geemap` to digitize your printarea and  `k3d` to preview your STL, no need to install them via pip
 - If you want to stop the jupyter server, hit Control-c and then y. This will return you to the container terminal. Use `./run_touchterrain.sh` to start the server again.
