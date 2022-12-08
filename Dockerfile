@@ -1,6 +1,9 @@
 # build image for jupyter, includes all needed modules (even gdal, geemap and k3d)
 # except touchterrain which will need to be pip installed from github via a shell script 
 # Based on docker files by Simon Mudd (simon.m.mudd@ed.ac.uk)
+
+# Updated Dec. 8, 2022 to Python 3.10
+
 # Pull base image. We start from the miniconda image
 FROM conda/miniconda3
 LABEL maintainer="charding@iastate.edu"
@@ -32,7 +35,7 @@ RUN conda install -y conda-build
 # Now add some conda packages (same as in setup.py)
 RUN conda install -y Pillow         
 RUN conda install -y earthengine-api
-RUN conda install -y Flask
+#RUN conda install -y Flask
 RUN conda install -y oauth2client
 RUN conda install -y kml2geojson
 RUN conda install -y geojson
@@ -45,7 +48,6 @@ RUN conda install -y k3d
 # install geemap
 RUN conda install mamba -y -c conda-forge
 RUN mamba install geemap -y -c conda-forge
-RUN mamba install jupyter_contrib_nbextensions -y -c conda-forge
 
 # Here you can put some missing packages
 RUN apt-get update && apt-get install -y \
