@@ -43,12 +43,12 @@ this will pull the already built image from dockerhub. The image is about 2 Gb t
 - To create a container running on your PC from this image, type:
 
 ```console
-docker run -it -p 8888:8888 --name touchterain_container chharding/touchterrain_jupyter
+docker run -it -p 8888:8888 --name touchterrain_container chharding/touchterrain_jupyter
 ```
 
 - `-it` means interactive, meaning your outside OS terminal will turn into a within-container (Linux) terminal
 - `-p 8888:8888` sets the port through with your local browser will communicate with jupyter running in the container
-- `--name touchterain_container` sets the name of the container, otherwise its random.
+- `--name touchterrain_container` sets the name of the container, otherwise its random.
 - `chharding/touchterrain_jupyter` is the image you downloaded (pulled) earlier
 
 
@@ -78,13 +78,14 @@ docker run -it -p 8888:8888 --name touchterain_container chharding/touchterrain_
 - There are two notebooks:
   - `TouchTerrain_standalone_jupyter_notebook.ipynb`: This is the standard notebook and requires jupyter and Python knowledge
   - `TouchTerrain_jupyter_for_starters.ipynb`: __This notebook is recommended for beginners__. It is somewhat simplified and explains a lot of details that will hopefully be useful for those with little to no jupyter experience.
+  - The other notebooks ending in binder and colab are not meant to be run in docker as the do some setup stuff needed for binder/colab.
 - Note: Before you start you might want to make a copy of the original notebook and work on the copy instead.
 
 - Click on the notebook (.ipynb file) to run it. 
 - Read the instructions (ignore anything with install as you have everything already installed)
-- You MUST run `ee.Authenticate()` at least once to access online DEM data or the interactive in-cell map `geemap`. You will need a Google account but once you've create the keyfile, you can comment `ee.Autheticate()` out again.
+- You MUST run `ee.Authenticate()` at least once to access online DEM data or the interactive in-cell map `geemap`. You can ignore this if you only want to process raster DEM data. Look at EarthEngine_authentication_guide.md You will need a Google account to set up a EarthEngine project to generate a token that you can use to create a keyfile.  
 
-- You can use `geemap` to digitize your printarea and  `k3d` to preview your STL, no need to install them via pip
+- You can use `geemap` to digitize your printarea and  `k3d` to preview your STL (Dec. 8, 2022: this may not work anymore ...)
 - If you want to stop the jupyter server, hit Control-c and then y. This will return you to the container terminal. Use `./run_touchterrain.sh` to start the server again.
 
 #### Workflow tips
