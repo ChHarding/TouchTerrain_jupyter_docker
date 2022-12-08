@@ -1,7 +1,7 @@
 # Running TouchTerrain Standalone inside a Docker container
 - This docker container has all the components installed needed to run [TouchTerrain](https://github.com/ChHarding/TouchTerrain_for_CAGEO) in stand alone mode (i.e. NOT via the web app) inside a jupyter notebook. Using standalone has many advantage compared to the web app.
 - Once the the docker container is running, is can be used as a virtual Linux box. 
-- Using docker ensures that all packages, including some tricky ones (looking at you GDAL!) are already installed in a modern Python system (currently 3.9).
+- Using docker ensures that all packages, including some tricky ones (looking at you GDAL!) are already installed in a modern Python system (currently 3.10).
 - This will hopefully help us to bring the standalone version to more people, without as little complexity as possible. Although minimal, some command line (text terminal) activity is required.
 - After creating the docker container, scripts are provided to install the latest version of TouchTerrain and to run a jupyter server inside the container. The server that can be accessed through your standard, local browser and you can download and upload files through jupyter.
 - A new notebook (`TouchTerrain_jupyter_for_starters.ipynb`) will hopefully make is easy for beginners to work through the workflow of creating a 3D terrain model file in standalone.
