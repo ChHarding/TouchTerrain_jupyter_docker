@@ -1,5 +1,10 @@
 # runs jupyter on a local server
 
+# Need to activate base conda env so that GDAL projection stuff works
+source /usr/local/etc/profile.d/conda.sh # inits conda commands for bash
+conda activate base
+
+
 cd /TouchTerrain/standalone
 echo "Starting jupyter"
 echo "You will see a URL starting with 127.0.0.1, something like http://127.0.0.1:8888/?token=ea78c44799a531743"
