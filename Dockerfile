@@ -35,13 +35,14 @@ RUN conda install -y conda-build
 # Now add some conda packages (same as in setup.py)
 RUN conda install -y Pillow         
 RUN conda install -y earthengine-api
-#RUN conda install -y Flask
+#RUN conda install -y Flask      # should not be needed unless you want to run the sever version
 RUN conda install -y oauth2client
 RUN conda install -y kml2geojson
 RUN conda install -y geojson
 RUN conda install -y defusedxml
 RUN conda install -y six
 RUN conda install -y numpy
+RUN conda install -y scipy  
 RUN conda install -y gdal	
 RUN conda install -y k3d
 
@@ -49,7 +50,7 @@ RUN conda install -y k3d
 RUN conda install mamba -y -c conda-forge
 RUN mamba install geemap -y -c conda-forge
 
-# Here you can put some missing packages
+# Install some linux packages
 RUN apt-get update && apt-get install -y \
     build-essential \
     vim \
@@ -68,4 +69,5 @@ COPY update_touchterrain.sh /TouchTerrain
 RUN chmod +x update_touchterrain.sh
 COPY run_touchterrain.sh /TouchTerrain
 RUN chmod +x run_touchterrain.sh
+
 
