@@ -3,6 +3,8 @@
 # Need to activate base conda env so that GDAL projection stuff works
 source /usr/local/etc/profile.d/conda.sh # inits conda commands for bash
 conda activate base
+# show info on activated base env
+conda info
 
 
 cd /TouchTerrain/standalone
