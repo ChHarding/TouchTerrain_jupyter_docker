@@ -1,3 +1,5 @@
+#! /bin/bash
+
 # runs jupyter on a local server
 
 # Need to activate base conda env so that GDAL projection stuff works
